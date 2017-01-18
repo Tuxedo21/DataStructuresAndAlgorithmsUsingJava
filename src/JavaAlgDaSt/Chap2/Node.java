@@ -1,4 +1,4 @@
-package JavaAlgDaSt;
+package JavaAlgDaSt.Chap2;
 
 import javax.swing.*;
 

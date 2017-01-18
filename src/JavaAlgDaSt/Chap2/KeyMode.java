@@ -1,4 +1,4 @@
-package JavaAlgDaSt;
+package JavaAlgDaSt.Chap2;
 
 /**
  * Created by tuxedo21 on 11/01/17.
