@@ -20,6 +20,11 @@ public class Listing {
     public String toString() {
         return ("Name is:"+name+"\nAddres is: "+address+"\nNumber is:"+ number+"\n\n");
     }
+
+    public int compareTo(String targetKey){
+        return (name.compareTo(targetKey));
+    }
+
     public Listing deepCopy(){
         Listing clone = new Listing(name,address,number);
         return clone;
