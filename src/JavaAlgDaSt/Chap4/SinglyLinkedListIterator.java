@@ -1,22 +1,24 @@
 package JavaAlgDaSt.Chap4;
 
 
-import JavaAlgDaSt.Chap3.Listing;
+import JavaAlgDaSt.Chap4.Listing2;
 
 /**
  * Created by tuxedo21 on 18/01/17.
  */
-public class SinglyLinkedList {
+public class SinglyLinkedListIterator {
 
     private Node h;
+    public Iterator i;
 
-    public SinglyLinkedList(Node h) {
+    public SinglyLinkedListIterator() {
         h = new Node();
+        i = new Iterator();
         h.l = null;
         h.next = null;
     }
 
-    public boolean insert(Listing newListing){
+    public boolean insert(Listing2 newListing){
         Node n = new Node();
         if(n == null)
             return false;
@@ -28,7 +30,7 @@ public class SinglyLinkedList {
         }
     }
 
-    public Listing fetch(String targetKey){
+    public Listing2 fetch(String targetKey){
         Node p = h.next;
         while (p != null && !(p.l.compareTo(targetKey) == 0 )) {
             p = p.next;
@@ -52,7 +54,7 @@ public class SinglyLinkedList {
             return false;
     }
 
-    public boolean update(String targetKey, Listing newListing){
+    public boolean update(String targetKey, Listing2 newListing){
         if(delete(targetKey) == false)
             return false;
         else if(insert(newListing) == false)
@@ -69,11 +71,41 @@ public class SinglyLinkedList {
         }
     }
 
+
+
+    public class Iterator{
+        private Node ip;
+
+        public Iterator() {
+            this.ip = h; // dummy node
+        }
+
+        public void reset(){
+            this.ip = h;
+        }
+
+        public boolean hasNext(){
+            return ip.next != null;
+        }
+
+        public Listing2 next(){
+            ip = ip.next;
+            return ip.l.deepCopy();
+        }
+
+        public void set(Listing2 newListing){
+            ip.l = newListing.deepCopy();
+        }
+    }
+
     public class Node{
-        private Listing l; //left
+        private Listing2 l; //left
         private Node next; //right
         public Node(){
 
         }
     }
+
+
+
 }

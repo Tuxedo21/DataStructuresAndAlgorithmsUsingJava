@@ -5,23 +5,23 @@ package JavaAlgDaSt.Chap3;
  */
 public class Stack {
 
-    private Listing[] data;
+    private Listing2[] data;
     private int top;
     private int size;
 
     public Stack(int s) {
         this.size = s;
         this.top = -1;
-        this.data = new Listing[s];
+        this.data = new Listing2[s];
     }
 
     public Stack() {
         this.size = 100;
         this.top = -1;
-        this.data = new Listing[100];
+        this.data = new Listing2[100];
     }
 
-    public boolean push(Listing newNode){
+    public boolean push(Listing2 newNode){
         if (top == size-1)
             return false;
         else {
@@ -30,7 +30,7 @@ public class Stack {
         return true;}
     }
 
-    public Listing pop(){
+    public Listing2 pop(){
         if(top == -1)
             return null;
         else {
