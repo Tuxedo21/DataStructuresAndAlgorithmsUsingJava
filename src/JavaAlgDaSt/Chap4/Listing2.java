@@ -7,6 +7,7 @@ public class Listing2 {
     private String name;
     private String address;
     private String number;
+    private boolean pushed;
 
     public Listing2(String name, String address, String number) {
         this.name = name;
@@ -23,6 +24,10 @@ public class Listing2 {
         return clone;
     }
 
+    public String getKey(){
+        return name;
+    }
+
     public int compareTo(String targetKey){
         return (name.compareTo(targetKey));
     }
@@ -33,5 +38,18 @@ public class Listing2 {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+
+    public void setPushed(boolean pushed) {
+        this.pushed = pushed;
+    }
+
+    public void visit() {
+        System.out.println(this);
+    }
+
+    public boolean getPushed() {
+        return pushed;
     }
 }
