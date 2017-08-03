@@ -18,7 +18,7 @@ public class Node implements KeyMode {
     }
 
     public String toString(){
-        return "Node: " + name + " : " + address + " : " + number;
+        return "gNode: " + name + " : " + address + " : " + number;
     }
 
     public Node deepCopy(){

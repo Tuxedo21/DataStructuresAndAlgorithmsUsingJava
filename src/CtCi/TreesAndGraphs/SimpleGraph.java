@@ -1,26 +1,28 @@
 package CtCi.TreesAndGraphs;
 
+
 /**
  * Created by tuxedo21 on 3/08/17.
  */
 public class SimpleGraph {
 
-    String vertex[];
+
+    gNode vertex[];
     int edge[][];
     int max, numberOfVertices;
 
     public SimpleGraph(int n){
-        vertex = new String[n];
+        vertex = new gNode[n];
         edge = new int[n][n];
         max = n;
         numberOfVertices = 0;
 
     }
 
-    public boolean insertVertex (int vertexNumber, String newListing){
+    public boolean insertVertex (int vertexNumber, gNode node){
         if(vertexNumber >= max) // The Graph is full.
             return false;
-        vertex[vertexNumber] = newListing;
+        vertex[vertexNumber] = node.deepCopy();
         numberOfVertices++;
         return true;
     }
