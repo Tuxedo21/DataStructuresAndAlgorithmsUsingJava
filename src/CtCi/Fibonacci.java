@@ -17,13 +17,34 @@ public class Fibonacci {
             return fibo(n -1) + fibo(n -2);
         }
         else {
-            return -1;
+            return 0;
         }
 
     }
 
-    public static void main(String[] args) {
-        for (int i = 1; i < 1000; i++)
-            System.out.println(fibo(i) + " : " +i);
+    public static int fiboM(int n){
+        int[] memo = new int[n+1];
+        return fiboM(n,memo);
+
     }
+
+    public static int fiboM(int n, int [] memo){
+        if(n == 0 || n == 1)
+            return 1;
+        else if(memo[n] > -1)
+            return memo[n];
+        else{
+            memo[n] = fiboM(n-1,memo) + fiboM(n-2,memo);
+            return memo[n];
+        }
+    }
+
+    public static void main(String[] args) {
+       // for (int i = 1; i < 45; i++)
+       //     System.out.println(fibo(i) + " : " +i);
+
+        System.out.println(fibo(46));
+    }
+
+
 }

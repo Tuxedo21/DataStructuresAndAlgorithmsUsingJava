@@ -1,28 +1,26 @@
-package JavaAlgDaSt.Chp9;
-
-import JavaAlgDaSt.Chap4.Listing2;
+package CtCi.TreesAndGraphs;
 
 /**
- * Created by tuxedo21 on 2/03/17.
+ * Created by tuxedo21 on 3/08/17.
  */
 public class SimpleGraph {
 
-    Listing2 vertex[];
+    String vertex[];
     int edge[][];
     int max, numberOfVertices;
 
     public SimpleGraph(int n){
-        vertex = new Listing2[n];
+        vertex = new String[n];
         edge = new int[n][n];
         max = n;
         numberOfVertices = 0;
 
     }
 
-    public boolean insertVertex (int vertexNumber, Listing2 newListing){
+    public boolean insertVertex (int vertexNumber, String newListing){
         if(vertexNumber >= max) // The Graph is full.
             return false;
-        vertex[vertexNumber] = newListing.deepCopy();
+        vertex[vertexNumber] = newListing;
         numberOfVertices++;
         return true;
     }

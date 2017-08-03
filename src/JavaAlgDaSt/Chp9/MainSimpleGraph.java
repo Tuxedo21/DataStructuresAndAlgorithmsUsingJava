@@ -31,7 +31,7 @@ public class MainSimpleGraph {
         flyUS.insertEdge(4,3);
 
         for(int i =0; i < 5; i++){
-            System.out.println("hub " + i+ "\'s");
+            System.out.println("Ve " + i+ "\'s");
             flyUS.showVertex(i);
             System.out.println("its routes are: ");
             flyUS.showEdges(i);
