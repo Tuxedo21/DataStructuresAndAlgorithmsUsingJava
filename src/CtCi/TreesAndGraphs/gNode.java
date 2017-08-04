@@ -10,7 +10,7 @@ public  class gNode {
 
     State state;
     String name;
-    ArrayList<gNode> adjacent;
+    ArrayList<gNode> adjacent = new ArrayList<>();
 
     public gNode(State state, String name){
         this.state = state;
@@ -19,8 +19,8 @@ public  class gNode {
 
 
 
-    public void setAdjacent(ArrayList<gNode> adjacent) {
-        this.adjacent = adjacent;
+    public void addAdjacent(gNode node) {
+        this.adjacent.add(node);
     }
 
     public ArrayList<gNode> getAdjacent() {

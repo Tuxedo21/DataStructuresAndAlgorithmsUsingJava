@@ -29,6 +29,7 @@ static boolean searchPath(gNode start, gNode end){
                     }
                 }
             }
+            u.state = State.Visited;
         }
     }
     return false;
@@ -62,30 +63,28 @@ public static void main(String[] args) {
         gNode s20 = new gNode(State.Unvisited,"20");
         gNode s21 = new gNode(State.Unvisited,"21");
 
-        ArrayList<gNode> s0edges = new ArrayList<>();
-        s0edges.add(s1);
-        s0edges.add(s2);
-        s0edges.add(s3);
-        s0.setAdjacent(s0edges);
 
-        ArrayList<gNode> s1edges = new ArrayList<>();
-        s0edges.add(s0);
-        s0edges.add(s2);
-        s0edges.add(s3);
-        s0.setAdjacent(s1edges);
+        s0.addAdjacent(s1);
+        s0.addAdjacent(s2);
+        s0.addAdjacent(s3);
 
-        ArrayList<gNode> s2edges = new ArrayList<>();
-        s0edges.add(s5);
-        s0edges.add(s6);
-        s0edges.add(s7);
-        s0.setAdjacent(s2edges);
+
+        s1.addAdjacent(s0);
+        s1.addAdjacent(s10);
+        s1.addAdjacent(s3);
+
+        s2.addAdjacent(s5);
+        s2.addAdjacent(s6);
+        s2.addAdjacent(s7);
 
 
 
-        System.out.println(s0.equals(s1));
-        System.out.println(searchPath(s0,s9)+"");
+   // System.out.println(searchPath(s0,s3)+"");
+    System.out.println(searchPath(s0,s10)+"");
+   // System.out.println(searchPath(s1,s10)+"");
 
 
-    }
+
+}
 
 }
