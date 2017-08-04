@@ -1,6 +1,7 @@
 package CtCi.TreesAndGraphs;
 
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -8,7 +9,7 @@ import java.util.LinkedList;
  */
 public class RouteBetweenNodes {
 
-static boolean searchPath(SimpleGraph graph, gNode start, gNode end){
+static boolean searchPath(gNode start, gNode end){
     if(start.equals(end))
         return true;
     LinkedList<gNode> queue = new LinkedList<>();
@@ -18,7 +19,16 @@ static boolean searchPath(SimpleGraph graph, gNode start, gNode end){
     while (!queue.isEmpty()){
         u = queue.removeFirst(); // dequeue
         if (u != null){
-
+            for(gNode v : u.getAdjacent()){
+                if(v.state == State.Unvisited){
+                    if(v == end){
+                        return true;
+                    }else {
+                        v.state = State.Visiting;
+                        queue.add(v);
+                    }
+                }
+            }
         }
     }
     return false;
@@ -28,7 +38,7 @@ static boolean searchPath(SimpleGraph graph, gNode start, gNode end){
 
 public static void main(String[] args) {
 
-        SimpleGraph graph = new SimpleGraph(50);
+
         gNode s0 = new gNode(State.Unvisited,"0");
         gNode s1 = new gNode(State.Unvisited,"1");
         gNode s2 = new gNode(State.Unvisited,"2");
@@ -52,36 +62,28 @@ public static void main(String[] args) {
         gNode s20 = new gNode(State.Unvisited,"20");
         gNode s21 = new gNode(State.Unvisited,"21");
 
+        ArrayList<gNode> s0edges = new ArrayList<>();
+        s0edges.add(s1);
+        s0edges.add(s2);
+        s0edges.add(s3);
+        s0.setAdjacent(s0edges);
 
-        graph.insertVertex(0,s0);graph.insertVertex(1,s1);graph.insertVertex(2,s2);graph.insertVertex(3,s3);graph.insertVertex(4,s4);graph.insertVertex(5,s5);
-        graph.insertVertex(6,s6);graph.insertVertex(7,s7);graph.insertVertex(8,s8);graph.insertVertex(9,s9);graph.insertVertex(10,s10);graph.insertVertex(11,s11);
-        graph.insertVertex(12,s12);graph.insertVertex(13,s13);graph.insertVertex(14,s14);graph.insertVertex(15,s15);graph.insertVertex(16,s16);
-        graph.insertVertex(17,s17);graph.insertVertex(18,s18);graph.insertVertex(19,s19);graph.insertVertex(20,s20);graph.insertVertex(21,s21);
+        ArrayList<gNode> s1edges = new ArrayList<>();
+        s0edges.add(s0);
+        s0edges.add(s2);
+        s0edges.add(s3);
+        s0.setAdjacent(s1edges);
 
-        graph.insertEdge(0,1);
-        graph.insertEdge(0,3);
-        graph.insertEdge(1,2);
-        graph.insertEdge(1,3);
-        graph.insertEdge(2,1);
-        graph.insertEdge(3,4);
-        graph.insertEdge(4,0);
-        graph.insertEdge(4,3);
-        graph.insertEdge(5,0);
-        graph.insertEdge(5,1);
-        graph.insertEdge(5,2);
-        graph.insertEdge(5,3);
-        graph.insertEdge(5,4);
+        ArrayList<gNode> s2edges = new ArrayList<>();
+        s0edges.add(s5);
+        s0edges.add(s6);
+        s0edges.add(s7);
+        s0.setAdjacent(s2edges);
 
 
-        for(int i =0; i < 50; i++){
-            System.out.println("Vertex " + i+ "\'s");
-            graph.showVertex(i);
-            //System.out.println("its routes are: ");
-            //graph.showEdges(i);
-        }
 
         System.out.println(s0.equals(s1));
-
+        System.out.println(searchPath(s0,s9)+"");
 
 
     }
