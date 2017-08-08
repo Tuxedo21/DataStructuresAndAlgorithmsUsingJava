@@ -20,6 +20,8 @@ public class tNode {
                 this.right.showTree();
     }
 
-
-
+    @Override
+    public String toString() {
+        return this.value +"";
+    }
 }

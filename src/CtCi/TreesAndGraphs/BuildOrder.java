@@ -1,6 +1,5 @@
 package CtCi.TreesAndGraphs;
 
-import javax.print.DocFlavor;
 import java.util.*;
 
 /**
@@ -18,8 +17,7 @@ public class BuildOrder {
         }
 
             while (!depen.isEmpty()){
-
-//            //garbage.stream().filter(depen::contains).forEach(depen::remove);
+            //garbage.stream().filter(depen::contains).forEach(depen::remove);
                 for (char[] g: garbage){
                     if (depen.contains(g))
                         depen.remove(g);
@@ -33,27 +31,21 @@ public class BuildOrder {
                     }
                 }
             }
-
         return buildOrder.toArray(new Character[buildOrder.size()]);
-
     }
 
     public static Character[] trueFathers(char[] proj, ArrayList<char[]> depen){
-
         HashSet<Character> sons = getSons(depen);
         HashSet<Character> hProj = gethProj(proj);
         hProj.removeAll(sons);
-
-
         return  hProj.toArray(new Character[hProj.size()]);
-
     }
 
     private static HashSet<Character> gethProj(char[] proj) {
-        HashSet<Character> sons = new HashSet<>();
+        HashSet<Character> hProj = new HashSet<>();
         for (char d: proj)
-            sons.add(d);
-        return sons;
+            hProj.add(d);
+        return hProj;
     }
 
     public static HashSet<Character> getSons(ArrayList<char[]> depen){
@@ -61,7 +53,6 @@ public class BuildOrder {
         for (char[] d: depen)
             sons.add(d[1]);
         return sons;
-
     }
 
     public static void main(String[] args) {
