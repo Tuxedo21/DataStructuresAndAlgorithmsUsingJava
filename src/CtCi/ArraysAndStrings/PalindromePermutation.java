@@ -4,7 +4,7 @@ package CtCi.ArraysAndStrings;
  * Created by tuxedo21 on 9/08/17.
  */
 public class PalindromePermutation {
-    //TODO Make this better
+    //TODO Make this better, within 12 min
     public static void main(String[] args) {
         System.out.println(isPerOfPal("Tact Coa"));
     }

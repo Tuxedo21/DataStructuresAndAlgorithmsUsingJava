@@ -5,8 +5,8 @@ package CtCi.TreesAndGraphs;
  */
 public class tNode {
     int value;
-    tNode left;
-    tNode right;
+    public tNode left;
+    public tNode right;
 
     public tNode(int value) {
         this.value = value;
