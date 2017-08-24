@@ -31,10 +31,6 @@ public class RobotInaGrid {
 
     public static void main(String[] args) {
         int [][] matrix = new int [10][10];
-
-        for (int [] row : matrix){
-            Arrays.fill(row,1);
-        }
         matrix[2][3] = 0;        matrix[5][3] = 0;        matrix[6][4] = 0;        matrix[4][4] = 0;
         matrix[1][7] = 0;        matrix[1][6] = 0;        matrix[9][0] = 0;        matrix[0][9] = 0;
         matrix[0][8] = 0;        matrix[0][7] = 0;        matrix[0][6] = 0;        matrix[0][5] = 0;

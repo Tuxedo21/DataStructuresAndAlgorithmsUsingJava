@@ -14,23 +14,16 @@ public class PowerSet {
         addPowerSet(set,powerset);
         return powerset;
     }
-
     static void addPowerSet(ArrayList<Integer> set,HashSet<ArrayList<Integer>> powerset){
         if (set.isEmpty()){
-            set.add(null);
             return;
-        }
-        else {
+        } else {
             powerset.add(set);
-
                 for (int i = 0; i < set.size(); i++ ){
                     ArrayList<Integer> tmp = (ArrayList<Integer>) set.clone();
                     tmp.remove(i);
                     addPowerSet(tmp,powerset);
-                }
-
-        }
-    }
+                }}}
 
 
     public static void main(String[] args) {
@@ -39,6 +32,8 @@ public class PowerSet {
         test.add(2);
         test.add(3);
         test.add(4);
+        test.add(5);
+
 
         HashSet<ArrayList<Integer>> result = getPowerSet(test);
 
