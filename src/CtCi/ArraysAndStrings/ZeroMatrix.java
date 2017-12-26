@@ -28,6 +28,8 @@ public class ZeroMatrix {
                 }
             }
         }
+
+
         if(points.isEmpty())
             return;
         for(MyPoint p: points){

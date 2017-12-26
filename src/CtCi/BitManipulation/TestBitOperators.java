@@ -34,7 +34,7 @@ public class TestBitOperators {
 
         System.out.println(n+"");
 
-        n = -100 >> 1;
+        n = -1 >>> 1;
 
         System.out.println(n+"");
 
