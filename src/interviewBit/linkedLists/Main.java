@@ -1,12 +1,22 @@
 package interviewBit.linkedLists;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class Main {
 
-    class ListNode {
+    static class ListNode {
       public int val;
       public ListNode next;
       ListNode(int x) { val = x; next = null; }
-  }
+
+        @Override
+        public String toString() {
+            return "ListNode{" +
+                    "val=" + val +
+                    '}';
+        }
+    }
 
     public ListNode deleteDuplicates(ListNode A) {
 
@@ -55,6 +65,66 @@ public class Main {
 //        //travers save y
 //
 //    }
+
+
+    static public ListNode detectCycle(ListNode a) {
+
+        HashSet<Integer> hashSet = new HashSet<>();
+
+        return detectCycle(a, hashSet);
+
+    }
+
+
+    static public ListNode fastDetectCycle(ListNode a) {
+
+        if (a == null)
+            return null;
+
+        ListNode slow = a, fast = a;
+
+        try {
+            do {
+                fast = fast.next.next;
+                slow = slow.next;
+            } while (fast != slow && fast != null);
+        } catch (Exception e){}
+
+        if (slow == null || fast == null || slow != fast)
+            return null;
+
+        slow = a;
+
+        while (slow!=fast){
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+
+
+
+    }
+
+    static public ListNode detectCycle(ListNode a, HashSet<Integer> hashSet) {
+
+
+
+        if (a.next == null)
+            return null;
+
+        else if( hashSet.contains(a.val) )
+            return a;
+
+        else{
+            hashSet.add(a.val);
+            return detectCycle(a.next, hashSet);
+        }
+
+
+
+
+
+    }
 
 
     public static void main(String[] args) {
